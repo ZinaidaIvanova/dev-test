@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  server:
+    build: WebApplication1/
+    ports:
+      - 5000:5000
+    restart: on-failure  
+
