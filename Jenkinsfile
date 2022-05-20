@@ -1,6 +1,4 @@
 @NonCPS
-
-
 def remoteImageTag
 def projectName  = 'Test dev'
 def repositoryName  = 'dev-test'
@@ -10,7 +8,7 @@ def ecRegistry      = "https://registry.citronium.com/v2/${repositoryName}"
 node {
     try {
       stage("Checkout") {
-        git branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git'
+        git branch: "${env.BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git'
         def commit_hash = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
         def now = new Date()
         remoteImageTag = "${now.format("yyMMdd", TimeZone.getTimeZone('UTC'))}_${imageTag}_${BUILD_NUMBER}_${commit_hash}"
