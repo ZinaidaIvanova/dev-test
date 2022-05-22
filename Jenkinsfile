@@ -18,12 +18,8 @@ node {
         echo "Build start ${remoteImageTag}\n\n${env.JOB_URL}"
       }
 
-      stage("Docker build") {
-        sh "docker build -f WebApplication1/Dockerfile -t ${repositoryName}:${remoteImageTag} ."
-      }
-
       stage('Up') {
-          sh "docker-compose -p demoserver up -d"
+          sh "docker-compose up -d"
       }
 
       stage("Notify") {
