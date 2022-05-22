@@ -19,6 +19,7 @@ node {
       }
 
       stage("Docker build") {
+        sh "ls"
         sh "docker build -t ${repositoryName}:${remoteImageTag} ."
       }
 
