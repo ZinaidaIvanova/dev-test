@@ -9,11 +9,11 @@ node {
     try {
       stage("Checkout") {
         echo "Current ${env.BRANCH_NAME} chosen ${BRANCH_NAME} "
-        git(
-          branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git', credentialsId: 'github-ssh-key'
-        )
-        //git branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git', credentialsId: 'github-ssh-key'
-       // sh "ls -lat"
+        // git(
+        //   branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git', credentialsId: 'github-ssh-key'
+        // )
+        git branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git', credentialsId: 'github-ssh-key'
+        sh "ls -lat"
         def now = new Date()
         remoteImageTag = "${now.format("yyMMdd", TimeZone.getTimeZone('UTC'))}_${imageTag}_${BUILD_NUMBER}"
       }
@@ -25,7 +25,7 @@ node {
       stage("Docker build") {
         sh "ls"
         echo "Docker copy"
-        sh "cp Dockerfile docker/Dockerfile"
+        sh "\\cp Dockerfile docker/Dockerfile"
         sh "ls"
         echo "Docker copy 2"
         sh "docker build  -t ${repositoryName}:${remoteImageTag} ."
