@@ -25,7 +25,7 @@ node {
       stage("Docker build") {
         sh "ls"
         echo "Docker copy"
-        sh "cp Dockerfile docker/Dockerfile"
+        sh "\\cp Dockerfile docker/Dockerfile"
         sh "ls"
         echo "Docker copy 2"
         sh "docker build  -t ${repositoryName}:${remoteImageTag} ."
