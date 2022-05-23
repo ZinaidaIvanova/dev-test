@@ -18,7 +18,7 @@ node {
 
       stage("Docker build") {
         sh "ls"
-        sh "docker build -t ${repositoryName}:${remoteImageTag} ."
+        sh "docker build -f  -t ${repositoryName}:${remoteImageTag} ."
       }
 
       stage('Up') {
