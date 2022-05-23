@@ -9,7 +9,7 @@ node {
     try {
       stage("Checkout") {
         echo "Current ${env.BRANCH_NAME} chosen ${BRANCH_NAME} "
-        git branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git'
+       // git branch: "${BRANCH_NAME}", url: 'git@github.com:ZinaidaIvanova/dev-test.git'
         def now = new Date()
         remoteImageTag = "${now.format("yyMMdd", TimeZone.getTimeZone('UTC'))}_${imageTag}_${BUILD_NUMBER}"
       }
