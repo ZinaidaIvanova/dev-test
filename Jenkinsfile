@@ -20,10 +20,13 @@ node {
 
       stage("Docker build") {
         sh "ls"
-        sh "docker build -f  -t ${repositoryName}:${remoteImageTag} ."
+        sh "\\cp Dockerfile docker/Dockerfile"
+        sh "ls"
+        sh "docker build  -t ${repositoryName}:${remoteImageTag} ."
       }
 
       stage('Up') {
+          sh "\\cp docker-compose.yml docker/docker-compose.yml"
           sh "docker-compose -p demoserver up -d"
       }
 
