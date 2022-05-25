@@ -2,7 +2,7 @@ version: "3"
 
 services:
   demoserver:
-    image: 'task-dev:${API_IMAGE_NAME}'
+    image: 'dev-test:${API_IMAGE_NAME}'
     build: . # WebApplication1/
     ports:
       - 3030:80

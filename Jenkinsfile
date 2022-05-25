@@ -23,16 +23,10 @@ node {
       }
 
       stage("Docker build") {
-        sh "ls"
-        echo "Docker copy"
-        sh "\\cp Dockerfile docker/Dockerfile"
-        sh "ls"
-        echo "Docker copy 2"
         sh "docker build  -t ${repositoryName}:${remoteImageTag} ."
       }
 
       stage('Up') {
-          sh "\\cp docker-compose.yml docker/docker-compose.yml"
           sh "docker-compose -p demoserver up -d"
       }
 
