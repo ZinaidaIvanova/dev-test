@@ -1,7 +1,7 @@
 @NonCPS
 def remoteImageTag
 def projectName  = 'Test dev'
-def repositoryName  = 'dev-test'
+def repositoryName  = 'dev_test'
 def imageTag        = env.BRANCH_NAME
 def ecRegistry      = "https://registry.citronium.com/v2/${repositoryName}"
 
